@@ -1,0 +1,21 @@
+<ion-view view-title="Beers">
+	<ion-content>
+		<ion-list>
+			<ionic-item>
+			<div style="margin: 10px 0px 10px 20px;">
+				<label><input ng-model="searchText" placeholder="Search..." style="border-radius:5px; width:160px; height:30px;padding:2px; background: #CCCCCC;"></label>
+				</div
+			</ionic-item>
+			<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="beer in beers |filter : searchText : strict" type="item-text-wrap" href="#/tab/beers/{{beer.image}}">
+				<img ng-src={{"img/"+beer.image+".PNG"}}>
+				<h2><strong>Name:</strong> {{beer.name}}</h2>
+				<h2><strong>Color:</strong> {{beer.color}}</h2>		
+				<h2><strong>Price:</strong> {{beer.price | currency : '$'}}</h2>
+				<i class="icon ion-chevron-right icon-accessory"></i>
+				<ion-option-button class="button-assertive" ng-click="remove(beer)">
+					Delete
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
